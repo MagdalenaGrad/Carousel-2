@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: sans-serif; }
+
+.main-carousel {
+  position: relative; }
+  .main-carousel .carousel-cell {
+    width: 100%;
+    /* full width */
+    height: 50vh;
+    min-height: 250px;
+    margin-right: 10px;
+    background-size: cover;
+    background-position: center; }
+    .main-carousel .carousel-cell .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px; }
+      .main-carousel .carousel-cell .container p {
+        font-size: 50px;
+        line-height: 50vh;
+        text-align: center; }
+
+.button-group {
+  position: absolute;
+  top: 10px;
+  left: 10px; }
+  .button-group button {
+    border: none;
+    background: lightgrey;
+    padding: 5px;
+    color: black;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer; }
+
+.flickity-page-dots {
+  display: none; }
+  .flickity-page-dots .dot {
+    display: none; }
+
+.progress-bar {
+  height: 20px;
+  width: 0;
+  background: lightgrey; }
+
+/*# sourceMappingURL=style.css.map */
