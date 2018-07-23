@@ -8,6 +8,9 @@
 
 	.main-carousel {
 		position: relative;
+		color: lightgrey;
+		text-align: center;
+		text-shadow: 2px 2px #black;
 		.carousel-cell {
 			width: 100%; /* full width */
 			height: 50vh;
