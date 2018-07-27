@@ -3,6 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+
 	<link rel="stylesheet" type="text/css" href="vendor/normalize.css">
 	<link rel="stylesheet" type="text/css" href="vendor/flickity.min.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="sass/style.css">
@@ -27,10 +36,17 @@
 			<div class="container"><p>Photo 5</p></div>
 		</div> -->
 	</div>
+
+	<div id="map-box">
+		
+		<div id="map"></div>
+
+	</div>
+
 	<div class="button-group">
   		<button class="button">Reset</button>
 	</div>
-	<div class="progress-bar"></div>
+	<div class="progress-bar" style="position: absolute; top: 48vh;"></div>
 
 	<script id="template-list-item" type="x-tmpl-mustache">
 		<div class="carousel-cell" id="carousel-cell{{number}}" style="background-image:url('{{{image}}}');
@@ -42,43 +58,46 @@
 		</div>
 	</script>
 
+
 	<script>
 		var sliderData = [
 			{
 				number: '1',
 				image: 'https://images.unsplash.com/photo-1468183654773-77e2f0bb6bf9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bbd6f149bacf0234360db2796a597c78&auto=format&fit=crop&w=750&q=80',
 				title: 'Amman',
-			    description: '<h4>the capital and largest city of the Hashemite Kingdom of Jordan with a population of more than four million</h4>'
+			    description: '<h4>the capital and largest city of the Hashemite Kingdom of Jordan with a population of more than four million</h4>',
+			    coords: {lat: 31.942298, lng: 35.899362}
 			},
 			{
 				number: '2',
 				image: 'https://images.unsplash.com/photo-1530624852-9beb898b2820?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=22202be1ef73321e978e3e4de113ca3b&auto=format&fit=crop&w=879&q=80', 
 				title: 'Petra',
-			    description: "<h4>Jordan's top attraction, an ancient city carved out of sandstone and one of the new seven Wonders.</h4>"
+			    description: "<h4>Jordan's top attraction, an ancient city carved out of sandstone and one of the new seven Wonders.</h4>",
+			    coords: {lat: 30.328390, lng: 35.444748}
 			},
 			{
 				number: '3',
 				image: 'https://images.unsplash.com/photo-1508513268030-f8a9af25721c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3a03aa1381d8ecec873f7a1f7d68d20a&auto=format&fit=crop&w=750&q=80', 
 				title: 'Wadi Rum',
-			    description: '<h4>Wadi Rum is a spectacularly scenic desert valley in southern Jordan. </h4>'
+			    description: '<h4>Wadi Rum is a spectacularly scenic desert valley in southern Jordan. </h4>',
+			    coords: {lat: 29.556416, lng: 35.458071}
 			},
 			{
 				number: '4',
 				image: 'https://images.unsplash.com/photo-1487604074519-783b9026a42a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ba9a995e3953678b5bc25e11388ba1e&auto=format&fit=crop&w=750&q=80', 
 				title: 'Dana Nature Reserve',
-			    description: '<h4>Stay in a village little changed since the 15th century, enjoy unforgettable hiking in an offshoot of the Great Rift.</h4>'
+			    description: '<h4>Stay in a village little changed since the 15th century, enjoy unforgettable hiking in an offshoot of the Great Rift.</h4>',
+			    coords: {lat: 30.687452, lng: 35.480103}
 			},
 			{
 				number: '5',
 				image: 'https://images.unsplash.com/photo-1501232060322-aa87215ab531?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9009fe1c5fb147ff8f62b5deca8f8777&auto=format&fit=crop&w=755&q=80', 
 				title: 'Petra',
-			    description: '<h4>The fabled "rose red city, half as old as time", is a well known ancient Nabataean city in the south of Jordan. Due to its breathtaking grandeur and fabulous ruins, Petra was recognized as a World Heritage Site by UNESCO in 1985. </h4>'
+			    description: '<h4>The fabled "rose red city, half as old as time", is a well known ancient Nabataean city in the south of Jordan. Due to its breathtaking grandeur and fabulous ruins, Petra was recognized as a World Heritage Site by UNESCO in 1985. </h4>',
+			    coords: {lat: 30.329084, lng: 35.445188}
 			}
 		];
 	</script>
-
-
-
 
 <!-- SCRIPTS -->
 	<script  src="vendor/flickity.pkgd.min.js"></script>
@@ -88,5 +107,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script src="https://unpkg.com/flickity-hash@1/hash.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGhLdQbFl2zPp7SgI_TKzU6gn5XYW1vxk&callback=initMap"></script>
 </body>
 </html>

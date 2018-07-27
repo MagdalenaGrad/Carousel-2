@@ -53,6 +53,9 @@
 	}
 	.progress-bar {
 		height: 20px;
-		width: 0;
+		width: auto;
 		background: lightgrey;
+		position: absolute;
+		top: 50vh;
+		z-index:10;
 	}
