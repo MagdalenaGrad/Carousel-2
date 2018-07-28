@@ -54,18 +54,35 @@ flkty.on( 'scroll', function( progress ) {
 // Initialize and add the map
   window.initMap = function initMap() {
   // The location of Uluru
+  var marker = [];
   var coordinations = sliderData[0].coords;
-
-  //console.log(coordinations);
-  //
 
   // The map, centered at Uluru
   var map = new google.maps.Map(
   document.getElementById('map'), {zoom: 5, center: coordinations});
-  var marker = new google.maps.Marker({position: coordinations, map: map});
-    for(var i = 0; i < sliderData.length; i++){
-        var coordinations = sliderData[i].coords;
-        var marker = new google.maps.Marker({position: coordinations, map: map});
-        console.log(coordinations);
-    };
+  for(var i = 0; i < sliderData.length; i++){
+      var slideCoords = sliderData[i].coords;
+      marker[i] = new google.maps.Marker({position: slideCoords, map: map});
+      addClick(marker[i], i);
+  };
+
+  function addClick(marker, index) {
+    marker.addListener('click', function(){
+      flkty.select(index);
+    });
+  }
+
+  flkty.on('change', function(index) {
+    map.panTo(sliderData[index].coords);
+    map.setZoom(10);
+  });
+
+
+
+  // var marker = new google.maps.Marker({position: coordinations, map: map});
+  //   for(var i = 0; i < sliderData.length; i++){
+  //       var coordinations = sliderData[i].coords;
+  //       var marker = new google.maps.Marker({position: coordinations, map: map});
+  //       console.log(coordinations);
+  //   };
 };
